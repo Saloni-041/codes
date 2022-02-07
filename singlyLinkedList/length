@@ -1,0 +1,56 @@
+public class LengthOfLL {
+	Node head;
+	int count=0;
+	class Node{
+		int data;
+		Node next;
+		Node(int data)
+		{
+			this.data=data;
+		}
+	}
+	void insInEnd(int data) {
+		Node p=new Node(data);
+		if(head==null)
+		{
+			head=p;
+			return;
+		}
+		Node ptr=head;
+			while(ptr.next!=null)
+			{
+				ptr=ptr.next;
+			}
+			ptr.next=p;
+	}
+	void print()
+	{ 
+		Node p=head;
+		while(p!=null)
+		{
+			System.out.println(p.data);
+			p=p.next;
+		}
+	}
+     void length()
+     {
+    	 Node p=head;
+    	 while(p!=null)
+    	 {
+    		 count++;
+    		 p=p.next;
+    	 }
+    	 System.out.println(count);
+     }
+	public static void main(String[] args) {
+		LengthOfLL obj=new LengthOfLL();
+		obj.insInEnd(1);
+        obj.insInEnd(2);
+        obj.insInEnd(3);
+        obj.insInEnd(4);
+        obj.insInEnd(5);
+        obj.print();
+        obj.length();
+	}
+
+}
