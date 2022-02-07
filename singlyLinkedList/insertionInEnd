@@ -1,0 +1,42 @@
+public class InsertionInLast {
+	Node head;
+	static class Node
+	{
+		int data;
+		Node next;
+		Node(int data)
+		{
+			this.data=data;
+		}
+	}
+	void insertionFormLast(int data)                     //insertion in end
+	{
+		Node n=new Node(data);
+		if(head==null)                                     //if head is null then make current node i.e n as head
+		{
+			head=n;
+		  return;
+		} 
+		Node current=head;                                 //otherwise traverse linked list till end of linked list comes
+		while(current.next!=null)
+		{
+			current=current.next;
+		}
+		current.next=n;	
+	}
+	void print()                                          //traversal of linked list
+	{
+		Node n=head;
+		while(n!=null)
+		{
+			System.out.println(n.data);
+			n=n.next;
+		}
+	}
+	public static void main(String[] args) {
+		InsertionInLast obj=new InsertionInLast();
+		obj.insertionFormLast(1);
+		obj.insertionFormLast(2);
+		obj.print();
+	}
+}
