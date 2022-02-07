@@ -1,0 +1,65 @@
+public class DeletionByPosition {
+	  Node head;
+	  class Node{
+			int data;
+			Node next;
+			Node(int data)
+			{
+				this.data=data;
+			}
+		}
+		void insInEnd(int data) {
+			Node p=new Node(data);
+			if(head==null)
+			{
+				head=p;
+				return;
+			}
+			Node ptr=head;
+				while(ptr.next!=null)
+				{
+					ptr=ptr.next;
+				}
+				ptr.next=p;
+		}
+		void print()
+		{ 
+			Node p=head;
+			while(p!=null)
+			{
+				System.out.println(p.data);
+				p=p.next;
+			}
+		}
+		void delete(int pos)
+		{
+			if(head==null)
+			{
+				return;
+			}
+			if(pos==0)
+			{
+				head=head.next;
+				return;
+			}
+			Node p=head;
+			for(int i=0; i<pos-1 && p!=null ;i++)
+			{
+				p=p.next;
+			}
+			if(p==null||p.next==null)
+				return; 
+	        p.next = p.next.next;
+		}
+	public static void main(String[] args) {
+		DeletionByPosition obj=new DeletionByPosition();
+		obj.insInEnd(1);
+        obj.insInEnd(2);
+        obj.insInEnd(3);
+        obj.insInEnd(4);
+        obj.insInEnd(5);
+        obj.print();
+		obj.delete(7);
+        obj.print();
+	}
+}
