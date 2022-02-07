@@ -1,0 +1,44 @@
+public class DeletionByKey {
+	Node head=null;
+	void insInBeg(int data) {
+		Node p=new Node(data);
+		p.next=head;
+		head=p;
+	}
+	void print()
+	{
+		Node p =head;
+		while(p!=null)
+		{
+			System.out.println(p.data);
+			p=p.next;
+		}
+	}
+	void delete(int data)
+	{
+		Node prev=null;
+		Node p=head;
+		if(p!=null&&p.data==head.data)
+		{
+			head=head.next;
+			return;
+		}
+		while(p!=null&&p.data!=data)
+		{
+			prev=p;
+			p=p.next;
+		}
+		prev.next=p.next;
+	}
+	public static void main(String[] args) {
+		DeletionByKey obj=new DeletionByKey();
+		obj.insInBeg(5);
+        obj.insInBeg(4);
+        obj.insInBeg(3);
+        obj.insInBeg(2);
+        obj.insInBeg(1);
+        obj.print();
+        obj.delete(1);
+        obj.print();
+	}
+}
