@@ -1,0 +1,42 @@
+public class InsertionInMiddle {
+	Node head;       
+	static class Node
+	{
+		int data;
+		Node next;    
+		Node(int data)
+		{
+			this.data=data;
+			next=null;
+		}
+	}
+	void print()
+	{
+		Node n=head;
+		while(n!=null)
+		{
+			System.out.println(n.data);
+			n=n.next;
+		}
+	}
+	
+	void insertAfter(Node prev,int data)
+	{
+		Node insertOne=new Node(data);
+		insertOne.next=prev.next;
+		prev.next=insertOne;
+	}
+	
+  public static void main(String args[]){  
+    InsertionInMiddle  obj=new InsertionInMiddle();
+    obj.head=new Node(1);    
+    InsertionInMiddle.Node second=new InsertionInMiddle.Node(2);     //can we make object like this? Find out
+    Node third=new Node(3);
+    obj.head.next=second;
+    second.next=third;
+    obj.print();
+    obj.insertAfter(second,6);
+    obj.insertAfter(third, 7);
+    obj.print();
+  }  
+}
