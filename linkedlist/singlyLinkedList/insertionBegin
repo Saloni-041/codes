@@ -1,0 +1,34 @@
+public class InsertionInFront {
+	Node head;
+	static class Node
+	{
+		int data;
+		Node next;
+		Node(int data)
+		{
+			this.data=data;
+		}
+	}
+	void insertionFromFirst(int data)    //insertion in beginning
+	{
+		Node new_Node=new Node(data);
+		new_Node.next=head;              
+		head=new_Node;	
+	}
+	void print()                         //traversal of linked list
+	{
+		Node n=head;
+		while(n!=null)
+		{
+			System.out.println(n.data);
+			n=n.next;
+		}
+	}
+	public static void main(String[] args) {
+		InsertionInFront obj=new InsertionInFront();
+		obj.insertionFromFirst(1);
+		obj.insertionFromFirst(2);
+		obj.insertionFromFirst(3);
+		obj.print();
+	}
+}
