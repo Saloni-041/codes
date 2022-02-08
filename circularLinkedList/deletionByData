@@ -1,0 +1,72 @@
+public class CircularLinkedList 
+{ 
+	Node last;
+	static class Node
+	{
+		int data;
+		Node next;
+		Node(int data)
+		{
+			this.data=data;
+		}
+	}
+  void insertEnd(int data)
+	{
+		Node new_node=new Node(data);
+		if(last==null)
+		{
+			new_node.next=new_node;
+			last=new_node;
+			return;
+		}
+		new_node.next=last.next;
+		last.next=new_node;
+		last=new_node;
+	}
+	void deletion(int data)
+	{
+		if(last==null)                        //if list is empty
+			return;
+		Node curr=last;                     
+		Node prev=last;
+		if(curr.next==last)                    //if list has one node only
+		{
+			last=null;
+			return;
+		}
+		while(curr.data!=data)
+		{
+			prev=curr;
+			curr=curr.next;
+		}
+		if(curr==last)
+		{
+			while(prev.next!=last)
+			{
+				prev=prev.next;
+			}
+			prev.next=last.next;
+			last=prev;
+			return;
+		}
+		if(curr==last.next)
+		{
+			prev.next=curr.next;
+		}
+		else 
+		{
+			prev.next=curr.next;
+		}
+		
+	}
+	public static void main(String[] args) 
+	{
+		CircularLinkedList obj=new CircularLinkedList();   
+        obj.insertEnd(1);
+        obj.insertEnd(2);
+        obj.insertEnd(3);
+        obj.insertEnd(4);
+        obj.deletion(3);
+        obj.print();
+	}
+}
