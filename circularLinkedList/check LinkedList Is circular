@@ -1,0 +1,14 @@
+class Main
+{
+    boolean isCircular(Node head)
+    {
+        Node curr=head;
+          while(curr.next!=head)
+          {
+              if(curr.next==null)
+              return false;
+              curr=curr.next;
+          }
+          return true;
+    }
+}
