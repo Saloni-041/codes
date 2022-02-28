@@ -1,0 +1,23 @@
+class Solution
+{
+    //Function to check whether the list is palindrome.
+    boolean isPalindrome(Node head) 
+    {
+        Stack<Integer> obj=new Stack<>();
+        Node curr=head;
+        while(curr!=null)
+        {
+           obj.push(curr.data); 
+           curr=curr.next;
+        }
+        curr=head;
+        while(curr!=null)
+        {
+            if(curr.data!=obj.pop())
+            return false;
+            curr=curr.next;
+        }
+        return true;
+        
+    }    
+}
