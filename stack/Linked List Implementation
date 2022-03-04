@@ -1,0 +1,64 @@
+public class Main {
+	private class Node
+	{
+		int data;
+		Node next;
+	}
+    Node top;
+    Main()
+    {
+    	top=null;
+    }
+void push(int data)
+{
+	Node new_node=new Node();
+	new_node.data=data;
+	if(top==null)
+	top=new_node;
+	else
+	{
+		new_node.next=top;
+		top=new_node;
+	}
+}
+int pop()
+{
+	if(top==null)
+		return -1;
+	else
+	{
+		int x=top.data;
+	    top=top.next;
+	    return x;
+	}
+}
+void peek()
+{
+	if(top==null)
+		return;
+	else
+	{
+		int x=top.data;
+		System.out.println(x);
+	}
+}
+boolean isEmpty()
+{
+	if(top==null)
+		return true;
+	else
+		return false;
+}
+	public static void main(String[] args) 
+	{
+		Main obj=new Main();
+		obj.push(10);
+		obj.push(20);
+		obj.push(30);
+		obj.push(40);
+		System.out.println(obj.pop());
+		System.out.println(obj.pop());
+		obj.peek();
+		System.out.println(obj.pop());
+	}
+}
